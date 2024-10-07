@@ -32,11 +32,20 @@ def brute_force(arr, i1, i2):
     pass
 
 def devide_and_conquer(arr, i1, i2):
-    '''배열의 사이즈를 확인해 1일경우 거리 X
+
+    '''배열의 사이즈를 확인해 1일경우 거리 X<<호출되는 일 없음
     2일 경우 두 점의 거리 return
     3읽경우 bruteforce
     4 이상일 경우 x의 값을 기준으로 정렬
     정렬 방법 1: coords에 sort 사용'''
+
+    '''X좌표: 중간점X좌표-d~중간점x좌표+d
+    index1: x좌표가 -d이상인 점들중 가장 왼쪽index
+    index2: // +d 이하인 점들중 가장 오른쪽index
+    strip=[t for t in y_sorted if t[2] >= index1 and t[2] <= index2]
+    '''
+
+
     pass
 coords.sort(key=lambda x: x[0])
 x_sorted=[(coords[i][0], coords[i][1], i) for i in range(len(coords))]
