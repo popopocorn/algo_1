@@ -49,18 +49,15 @@ def partition(arr, start, end):
     return q
 
 
-def insertion_sort(arr, left, right):
-    count = right - left + 1
-    for i in range(1, count):
-        v = arr[i]
-        j = i
-        while j > 0:
-            if arr[j - 1] > v:
-                arr[j] = arr[j - 1]
-                j -= 1
-            else:
-                break
-        arr[j] = v
+def insertion_sort(arr,left,right):
+
+    for i in range(left + 1, right + 1):
+        v= arr[i]
+        j=i-1
+        while j>=left and arr[j] > v:
+            arr[j+1] = arr[j]
+            j-=1
+        arr[j+1] = v
 
 def quick_sort(arr, start, end):
     size = end - start + 1

@@ -26,37 +26,36 @@ words = [
 ]
 
 def insertion_sort(arr,left,right):
-    count = right-left+1
-    for i in range(1, count):
+
+    for i in range(left + 1, right + 1):
         v= arr[i]
-        j=i
-        while j>0:
-            if arr[j-1]>v:
-                arr[j] = arr[j-1]
-                j-=1
-            else:
-                break
-        arr[j] = v
-#여기서 문제 생겼나?
-def merge(arr, start_of_first, start_of_second, end_of_second):
+        j=i-1
+        while j>=left and arr[j] > v:
+            arr[j+1] = arr[j]
+            j-=1
+        arr[j+1] = v
+
+def merge(arr, left, right, end):
     merged = []
-    l, r=start_of_first, start_of_second
-    while l < start_of_second and r<=end_of_second:
+    l, r=left, right
+    while l < right and r<=end:
         if arr[l]<=arr[r]:
             merged.append(arr[l])
             l+=1
         else:
             merged.append(arr[r])
             r+=1
-    while l<start_of_second:
+    while l<right:
         merged.append(arr[l])
         l+=1
 
-    while r<=end_of_second:
+    while r<=end:
         merged.append(arr[r])
         r+=1
-    print(merged)
-    arr[start_of_first:end_of_second+1] = merged
+
+    arr[left:end+1] = merged
+    print(arr)
+
 def merge_sort(arr, start, end):#end=inclusive
 
     if end - start + 1 <= 5:
